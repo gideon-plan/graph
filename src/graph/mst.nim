@@ -9,8 +9,7 @@ Prim's and Kruskal's MST algorithms.
 {.push raises: [Defect].}
 
 # std...
-import std/algorithm
-import std/heapqueue
+import std/[algorithm, heapqueue]
 
 # graph...
 import types

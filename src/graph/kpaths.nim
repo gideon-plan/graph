@@ -9,9 +9,7 @@ Find the k shortest simple (loopless) paths between two nodes.
 {.push raises: [Defect].}
 
 # std...
-import std/algorithm
-import std/heapqueue
-import std/sets
+import std/[algorithm, heapqueue, sets]
 
 # graph...
 import types

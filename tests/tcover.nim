@@ -1,8 +1,6 @@
 ## Cover tests.
 
-import std/unittest
-import std/sequtils
-import std/sets
+import std/[unittest, sequtils, sets]
 
 import graph/types
 import graph/cover

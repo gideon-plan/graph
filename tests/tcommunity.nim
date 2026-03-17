@@ -1,7 +1,6 @@
 ## Community detection tests.
 
-import std/unittest
-import std/sets
+import std/[unittest, sets]
 
 import graph/types
 import graph/community

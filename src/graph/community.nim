@@ -10,10 +10,7 @@ spectral clustering (power iteration), modularity.
 {.push raises: [Defect].}
 
 # std...
-import std/math
-import std/random
-import std/sets
-import std/tables
+import std/[math, random, sets, tables]
 
 # graph...
 import types

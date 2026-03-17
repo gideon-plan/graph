@@ -10,9 +10,7 @@ eigenvector, Katz, harmonic, HITS.
 {.push raises: [Defect].}
 
 # std...
-import std/deques
-import std/math
-import std/tables
+import std/[deques, math, tables]
 
 # graph...
 import types

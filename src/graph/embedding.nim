@@ -10,8 +10,7 @@ Outputs random walks; embedding (skip-gram) is deferred to external tools.
 {.push raises: [Defect].}
 
 # std...
-import std/math
-import std/random
+import std/[math, random]
 
 # graph...
 import types

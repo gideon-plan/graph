@@ -1,8 +1,6 @@
 ## Centrality tests.
 
-import std/unittest
-import std/math
-import std/tables
+import std/[unittest, math, tables]
 
 import graph/types
 import graph/centrality

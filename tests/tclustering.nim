@@ -1,7 +1,6 @@
 ## Clustering tests.
 
-import std/unittest
-import std/math
+import std/[unittest, math]
 
 import graph/types
 import graph/clustering

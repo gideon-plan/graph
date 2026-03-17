@@ -1,7 +1,6 @@
 ## Embedding tests.
 
-import std/unittest
-import std/random
+import std/[unittest, random]
 
 import graph/types
 import graph/embedding
