@@ -9,11 +9,13 @@ access and O(1) lookup. Edge weights default to 1.0 for unweighted use.
 ]#
 
 {.push raises: [Defect].}
-{.experimental: "strict_funcs".}
 
 # std...
 import std/hashes
 import std/tables
+
+import basis/code/throw
+standard_pragmas(effects=false, rise=false)
 
 #=======================================================================================================================
 #== TYPES ==============================================================================================================

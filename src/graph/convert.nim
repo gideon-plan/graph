@@ -13,10 +13,12 @@ Cache-friendly graph representation for read-heavy batch algorithms
 ]#
 
 {.push raises: [Defect].}
-{.experimental: "strict_funcs".}
 
 # graph...
 import types
+
+import basis/code/throw
+standard_pragmas(effects=false, rise=false)
 
 #=======================================================================================================================
 #== TYPES ==============================================================================================================

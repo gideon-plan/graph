@@ -1,3 +1,6 @@
+import basis/code/throw
+standard_pragmas(effects=false, rise=false)
+
 #[
 ==========
 Union-Find
@@ -8,7 +11,6 @@ Used by connected components, Kruskal's MST, and other graph algorithms.
 ]#
 
 {.push raises: [Defect].}
-{.experimental: "strict_funcs".}
 
 #=======================================================================================================================
 #== TYPES ==============================================================================================================
