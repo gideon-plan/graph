@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Graph types tests.
 
 import std/unittest

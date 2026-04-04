@@ -5,6 +5,7 @@ Clique
 
 Bron-Kerbosch max clique and clique enumeration.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

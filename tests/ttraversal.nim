@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Traversal tests.
 
 import std/unittest

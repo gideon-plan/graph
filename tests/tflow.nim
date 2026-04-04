@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Flow tests.
 
 import std/unittest

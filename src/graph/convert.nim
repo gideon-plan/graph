@@ -11,6 +11,7 @@ Cache-friendly graph representation for read-heavy batch algorithms
 - `targets`: packed destination node ids.
 - `weights`: packed edge weights (parallel to `targets`).
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

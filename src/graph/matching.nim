@@ -6,6 +6,7 @@ Matching
 Hopcroft-Karp bipartite matching, Edmonds' blossom general matching,
 Hungarian weighted bipartite matching.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

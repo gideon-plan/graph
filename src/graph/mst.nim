@@ -5,6 +5,7 @@ Minimum Spanning Tree
 
 Prim's and Kruskal's MST algorithms.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

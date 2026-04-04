@@ -5,6 +5,7 @@ Distance
 
 Diameter and eccentricity.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

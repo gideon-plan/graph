@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Components tests.
 
 import std/unittest

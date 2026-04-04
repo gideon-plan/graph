@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## CSR conversion tests.
 
 import std/unittest

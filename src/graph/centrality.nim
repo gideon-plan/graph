@@ -6,6 +6,7 @@ Centrality
 PageRank, betweenness, closeness, degree distribution,
 eigenvector, Katz, harmonic, HITS.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

@@ -5,6 +5,7 @@ Flow
 
 Edmonds-Karp max flow, push-relabel, Stoer-Wagner min-cut, min-cost max-flow.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

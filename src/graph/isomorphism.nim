@@ -5,6 +5,7 @@ Isomorphism
 
 VF2 graph and subgraph isomorphism.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

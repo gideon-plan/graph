@@ -5,6 +5,7 @@ Clustering
 
 Clustering coefficient and triangle counting.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

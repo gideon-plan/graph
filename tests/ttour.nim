@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Tour tests.
 
 import std/unittest

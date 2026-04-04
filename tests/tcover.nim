@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Cover tests.
 
 import std/[unittest, sequtils, sets]

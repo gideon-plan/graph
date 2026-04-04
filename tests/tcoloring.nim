@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Coloring tests.
 
 import std/unittest

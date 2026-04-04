@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Graph test runner.
 
 import ttypes

@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Embedding tests.
 
 import std/[unittest, random]

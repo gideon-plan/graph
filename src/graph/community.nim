@@ -6,6 +6,7 @@ Community
 Louvain, Leiden, label propagation, Girvan-Newman,
 spectral clustering (power iteration), modularity.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

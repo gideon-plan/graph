@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 import basis/code/throw
 standard_pragmas(effects=false, rise=false)
 

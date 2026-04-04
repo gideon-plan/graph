@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Shortest path tests.
 
 import std/unittest

@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Generation tests.
 
 import std/unittest

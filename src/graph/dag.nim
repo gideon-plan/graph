@@ -6,6 +6,7 @@ DAG
 Topological sort, transitive closure, transitive reduction, longest path
 (critical path), dominator tree.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

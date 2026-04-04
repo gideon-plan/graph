@@ -3,6 +3,7 @@
 Graph
 =====
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

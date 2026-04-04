@@ -5,6 +5,7 @@ Cover
 
 Vertex cover (2-approximation) and independent set (complement of vertex cover).
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

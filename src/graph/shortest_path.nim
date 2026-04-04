@@ -5,6 +5,7 @@ Shortest Path
 
 Dijkstra, Bellman-Ford, A*, bidirectional Dijkstra, Floyd-Warshall, Johnson's APSP.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## DAG tests.
 
 import std/unittest

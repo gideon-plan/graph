@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Community detection tests.
 
 import std/[unittest, sets]

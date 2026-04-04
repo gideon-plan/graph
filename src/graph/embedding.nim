@@ -6,6 +6,7 @@ Embedding
 Node2Vec: random walk generation for graph embedding.
 Outputs random walks; embedding (skip-gram) is deferred to external tools.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

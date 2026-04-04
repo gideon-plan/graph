@@ -5,6 +5,7 @@ Generation
 
 Erdos-Renyi, Barabasi-Albert, random walk graph generation.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

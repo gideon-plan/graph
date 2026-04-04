@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Cores tests.
 
 import std/unittest

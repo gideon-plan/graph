@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Centrality tests.
 
 import std/[unittest, math, tables]

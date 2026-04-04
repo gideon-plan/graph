@@ -6,6 +6,7 @@ Components
 Connected components, strongly connected components (Tarjan, Kosaraju),
 biconnected components, articulation points, bridges.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

@@ -5,6 +5,7 @@ Cores
 
 K-core decomposition.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Clique tests.
 
 import std/unittest

@@ -5,6 +5,7 @@ Yen's K-Shortest Paths
 
 Find the k shortest simple (loopless) paths between two nodes.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

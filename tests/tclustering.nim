@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Clustering tests.
 
 import std/[unittest, math]

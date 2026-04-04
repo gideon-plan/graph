@@ -5,6 +5,7 @@ Traversal
 
 BFS, DFS, cycle detection, Eulerian path/circuit, bipartite check.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

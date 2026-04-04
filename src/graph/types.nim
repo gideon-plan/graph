@@ -7,6 +7,7 @@ Adjacency list graph representation supporting directed/undirected and
 weighted/unweighted graphs. Vertices are integer-indexed for cache-friendly
 access and O(1) lookup. Edge weights default to 1.0 for unweighted use.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

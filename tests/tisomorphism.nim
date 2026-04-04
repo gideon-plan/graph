@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Isomorphism tests.
 
 import std/unittest

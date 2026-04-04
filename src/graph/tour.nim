@@ -5,6 +5,7 @@ Tour
 
 Christofides TSP approximation.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

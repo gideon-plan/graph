@@ -5,6 +5,7 @@ Coloring
 
 Greedy graph coloring.
 ]#
+{.experimental: "strictFuncs".}
 
 {.push raises: [Defect].}
 

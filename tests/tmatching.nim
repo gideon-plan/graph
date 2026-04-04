@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Matching tests.
 
 import std/unittest

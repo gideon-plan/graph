@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Union-find tests.
 
 import std/unittest

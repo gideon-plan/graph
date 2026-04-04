@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## Distance tests.
 
 import std/unittest

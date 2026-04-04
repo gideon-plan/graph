@@ -1,3 +1,4 @@
+{.experimental: "strictFuncs".}
 ## MST tests.
 
 import std/unittest
