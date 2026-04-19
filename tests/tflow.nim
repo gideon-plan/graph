@@ -9,7 +9,7 @@ import graph/shortest_path
 
 suite "Edmonds-Karp":
   test "simple max flow":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 3.0)
     g.addEdge(0, 2, 2.0)
@@ -19,7 +19,7 @@ suite "Edmonds-Karp":
     check maxFlow == 4.0
 
   test "no path":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 5.0)
     let (maxFlow, _) = g.edmondsKarp(NodeId(0), NodeId(2))
@@ -27,7 +27,7 @@ suite "Edmonds-Karp":
 
 suite "push-relabel":
   test "simple max flow":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 3.0)
     g.addEdge(0, 2, 2.0)
@@ -38,7 +38,7 @@ suite "push-relabel":
 
 suite "Stoer-Wagner min-cut":
   test "simple undirected graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1, 2.0)
     g.addEdge(0, 2, 3.0)
@@ -50,7 +50,7 @@ suite "Stoer-Wagner min-cut":
 
 suite "min-cost max-flow":
   test "simple network":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 2.0)
     g.addEdge(1, 2, 2.0)

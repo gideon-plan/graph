@@ -8,7 +8,7 @@ import graph/mst
 
 suite "Kruskal":
   test "simple undirected graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(0, 2, 4.0)
@@ -19,7 +19,7 @@ suite "Kruskal":
     check g.kruskalWeight() == 6.0  # 1 + 2 + 3
 
   test "disconnected graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(2, 3, 2.0)
@@ -29,7 +29,7 @@ suite "Kruskal":
 
 suite "Prim":
   test "simple undirected graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(0, 2, 4.0)
@@ -38,7 +38,7 @@ suite "Prim":
     check g.primWeight() == 6.0
 
   test "Prim and Kruskal agree":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1, 2.0)
     g.addEdge(0, 3, 6.0)
@@ -50,5 +50,5 @@ suite "Prim":
     check g.primWeight() == g.kruskalWeight()
 
   test "empty graph":
-    let g = initGraph(gkUndirected)
+    let g = initGraph(GraphKind.Undirected)
     check g.prim().len == 0

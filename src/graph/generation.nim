@@ -22,7 +22,7 @@ standard_pragmas(effects=false, rise=false)
 #== ERDOS-RENYI ========================================================================================================
 #=======================================================================================================================
 
-proc erdosRenyi*(n: system.int, p: float, kind: GraphKind = gkUndirected,
+proc erdosRenyi*(n: system.int, p: float, kind: GraphKind = GraphKind.Undirected,
                  seed: system.int = 42): Graph =
   ## Generate an Erdos-Renyi random graph G(n, p).
   ## Each edge exists independently with probability p.
@@ -30,7 +30,7 @@ proc erdosRenyi*(n: system.int, p: float, kind: GraphKind = gkUndirected,
   for i in 0 ..< n:
     discard result.addNode()
   var rng = initRand(seed)
-  if kind == gkUndirected:
+  if kind == GraphKind.Undirected:
     for i in 0 ..< n:
       for j in i + 1 ..< n:
         if rng.rand(1.0) < p:
@@ -50,7 +50,7 @@ proc barabasiAlbert*(n, m: system.int, seed: system.int = 42): Graph =
   ## Start with m+1 nodes in a clique, then add n-(m+1) nodes each with m edges.
   let startNodes = m + 1
   if n <= startNodes:
-    result = initGraph(gkUndirected, n)
+    result = initGraph(GraphKind.Undirected, n)
     for i in 0 ..< n:
       discard result.addNode()
     for i in 0 ..< n:
@@ -58,7 +58,7 @@ proc barabasiAlbert*(n, m: system.int, seed: system.int = 42): Graph =
         result.addEdge(NodeId(i), NodeId(j))
     return
 
-  result = initGraph(gkUndirected, n)
+  result = initGraph(GraphKind.Undirected, n)
   for i in 0 ..< n:
     discard result.addNode()
   # Initial clique.
@@ -103,7 +103,7 @@ proc barabasiAlbert*(n, m: system.int, seed: system.int = 42): Graph =
 proc randomWalkGraph*(n, steps: system.int, seed: system.int = 42): Graph =
   ## Generate a graph by random walk: start at node 0, at each step
   ## either visit a random neighbor or jump to a random new node.
-  result = initGraph(gkUndirected, n)
+  result = initGraph(GraphKind.Undirected, n)
   for i in 0 ..< n:
     discard result.addNode()
   if n <= 1:

@@ -8,7 +8,7 @@ import graph/convert
 
 suite "CSR conversion - directed":
   test "empty graph roundtrip":
-    let g = initGraph(gkDirected)
+    let g = initGraph(GraphKind.Directed)
     let csr = g.toCsr()
     check csr.nodeCount == 0
     check csr.edgeCount == 0
@@ -17,7 +17,7 @@ suite "CSR conversion - directed":
     check g2.edgeCount == 0
 
   test "directed graph to CSR":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(0, 2, 2.0)
@@ -34,7 +34,7 @@ suite "CSR conversion - directed":
     check csr.degree(NodeId(3)) == 0
 
   test "CSR hasEdge":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -45,7 +45,7 @@ suite "CSR conversion - directed":
     check not csr.hasEdge(NodeId(0), NodeId(2))
 
   test "CSR neighbor iteration":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 5.0)
     g.addEdge(0, 2, 7.0)
@@ -59,7 +59,7 @@ suite "CSR conversion - directed":
     check weights == @[5.0, 7.0]
 
   test "CSR neighborIds iteration":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -70,7 +70,7 @@ suite "CSR conversion - directed":
     check ids == @[1, 2]
 
   test "CSR node iteration":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     let csr = g.toCsr()
     var ids: seq[int]
@@ -79,7 +79,7 @@ suite "CSR conversion - directed":
     check ids == @[0, 1, 2, 3]
 
   test "CSR edge iteration":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -91,7 +91,7 @@ suite "CSR conversion - directed":
     check count == 3
 
   test "directed roundtrip preserves structure":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.5)
     g.addEdge(0, 2, 2.5)
@@ -111,7 +111,7 @@ suite "CSR conversion - directed":
 
 suite "CSR conversion - undirected":
   test "undirected graph to CSR":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1, 2.0)
     g.addEdge(1, 2, 3.0)
@@ -123,7 +123,7 @@ suite "CSR conversion - undirected":
     check csr.hasEdge(NodeId(1), NodeId(0))
 
   test "undirected CSR edge iteration yields each edge once":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

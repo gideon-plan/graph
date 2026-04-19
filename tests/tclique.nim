@@ -8,7 +8,7 @@ import graph/clique
 
 suite "Bron-Kerbosch":
   test "triangle is a clique":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -18,7 +18,7 @@ suite "Bron-Kerbosch":
     check cliques[0].len == 3
 
   test "max clique in graph with triangle and pendant":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -28,7 +28,7 @@ suite "Bron-Kerbosch":
     check mc.len == 3  # Triangle {0, 1, 2}.
 
   test "clique count":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

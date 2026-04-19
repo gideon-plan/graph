@@ -8,7 +8,7 @@ import graph/community
 
 suite "modularity":
   test "trivial: all in one community":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -19,7 +19,7 @@ suite "modularity":
 
 suite "Louvain":
   test "two cliques":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(6)
     # Clique 1: 0, 1, 2
     g.addEdge(0, 1)
@@ -40,7 +40,7 @@ suite "Louvain":
 
 suite "label propagation":
   test "disconnected components":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)
@@ -51,7 +51,7 @@ suite "label propagation":
 
 suite "Girvan-Newman":
   test "two components":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 1)  # parallel edge
@@ -64,7 +64,7 @@ suite "Girvan-Newman":
 
 suite "spectral clustering":
   test "basic partition":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)

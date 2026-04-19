@@ -8,7 +8,7 @@ import graph/shortest_path
 
 suite "Dijkstra":
   test "simple directed graph":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(5)
     g.addEdge(0, 1, 4.0)
     g.addEdge(0, 2, 1.0)
@@ -24,14 +24,14 @@ suite "Dijkstra":
     check dist[4] == 7.0
 
   test "unreachable node":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     let (dist, _) = g.dijkstra(NodeId(0))
     check dist[2] == InfDist
 
   test "path reconstruction":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, 1.0)
@@ -43,7 +43,7 @@ suite "Dijkstra":
 
 suite "Bellman-Ford":
   test "negative weights":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, -3.0)
@@ -56,7 +56,7 @@ suite "Bellman-Ford":
     check dist[3] == -1.0
 
   test "negative cycle detection":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, -1.0)
@@ -66,7 +66,7 @@ suite "Bellman-Ford":
 
 suite "A*":
   test "with zero heuristic (degenerates to Dijkstra)":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, 1.0)
@@ -78,7 +78,7 @@ suite "A*":
     check path == @[NodeId(0), NodeId(1), NodeId(2), NodeId(3)]
 
   test "unreachable target":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     let h: Heuristic = proc(node, target: NodeId): float = 0.0
@@ -88,7 +88,7 @@ suite "A*":
 
 suite "bidirectional Dijkstra":
   test "undirected graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, 2.0)
@@ -100,7 +100,7 @@ suite "bidirectional Dijkstra":
 
 suite "Floyd-Warshall":
   test "all-pairs shortest paths":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, 2.0)
@@ -112,7 +112,7 @@ suite "Floyd-Warshall":
     check dist[1][0] == InfDist
 
   test "path reconstruction":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, 1.0)
@@ -123,7 +123,7 @@ suite "Floyd-Warshall":
 
 suite "Johnson":
   test "sparse graph with negative weights":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 2.0)
     g.addEdge(1, 2, -1.0)
@@ -133,7 +133,7 @@ suite "Johnson":
     check dist[0][2] == 1.0  # 0 -> 1 -> 2
 
   test "negative cycle detection":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1, 1.0)
     g.addEdge(1, 2, -2.0)

@@ -8,7 +8,7 @@ import graph/clustering
 
 suite "triangle counting":
   test "single triangle":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -16,7 +16,7 @@ suite "triangle counting":
     check g.triangleCount() == 1
 
   test "K4 has 4 triangles":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -28,7 +28,7 @@ suite "triangle counting":
 
 suite "clustering coefficient":
   test "triangle has coefficient 1.0":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -36,7 +36,7 @@ suite "clustering coefficient":
     check abs(g.localClusteringCoefficient(NodeId(0)) - 1.0) < 0.001
 
   test "star has coefficient 0.0 at center":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -44,7 +44,7 @@ suite "clustering coefficient":
     check g.localClusteringCoefficient(NodeId(0)) == 0.0
 
   test "global clustering coefficient":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

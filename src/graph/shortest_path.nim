@@ -351,7 +351,7 @@ proc johnson*(g: Graph): (seq[seq[float]], bool) =
   ## All-pairs shortest paths using Johnson's algorithm.
   ## Handles negative weights. Returns (distance matrix, hasNegativeCycle).
   let n = g.nodeCount
-  var augmented = initGraph(gkDirected, n + 1)
+  var augmented = initGraph(GraphKind.Directed, n + 1)
   for i in 0 ..< n + 1:
     discard augmented.addNode()
   for i in 0 ..< n:
@@ -366,7 +366,7 @@ proc johnson*(g: Graph): (seq[seq[float]], bool) =
     var empty: seq[seq[float]]
     return (empty, true)
 
-  var reweighted = initGraph(gkDirected, n)
+  var reweighted = initGraph(GraphKind.Directed, n)
   for i in 0 ..< n:
     discard reweighted.addNode()
   for i in 0 ..< n:

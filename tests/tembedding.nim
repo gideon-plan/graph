@@ -8,7 +8,7 @@ import graph/embedding
 
 suite "Node2Vec":
   test "walk starts at start node":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -20,7 +20,7 @@ suite "Node2Vec":
     check walk.len == 5
 
   test "isolated node produces length-1 walk":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     var rng = initRand(42)
     let walk = g.node2vecWalk(NodeId(0), 10, 1.0, 1.0, rng)
@@ -28,7 +28,7 @@ suite "Node2Vec":
     check walk[0] == NodeId(0)
 
   test "batch walks":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

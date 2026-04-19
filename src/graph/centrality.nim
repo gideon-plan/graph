@@ -115,7 +115,7 @@ proc betweennessCentrality*(g: Graph): seq[float] =
         result[w] += delta[w]
 
   # For undirected graphs, divide by 2.
-  if g.kind == gkUndirected:
+  if g.kind == GraphKind.Undirected:
     for i in 0 ..< n:
       result[i] /= 2.0
 

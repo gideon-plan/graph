@@ -8,7 +8,7 @@ import graph/distance
 
 suite "eccentricity":
   test "center node has lower eccentricity":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     # Path: 0-1-2-3-4
     g.addEdge(0, 1)
@@ -20,7 +20,7 @@ suite "eccentricity":
 
 suite "diameter":
   test "path graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -28,7 +28,7 @@ suite "diameter":
     check g.diameter() == 3.0
 
   test "complete graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -40,7 +40,7 @@ suite "diameter":
 
 suite "radius":
   test "path graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -50,7 +50,7 @@ suite "radius":
 
 suite "center":
   test "path graph center":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

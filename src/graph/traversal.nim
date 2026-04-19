@@ -171,7 +171,7 @@ proc hasCycleUndirected*(g: Graph): bool =
 
 proc hasCycle*(g: Graph): bool =
   ## Detect whether the graph contains a cycle.
-  if g.kind == gkDirected:
+  if g.kind == GraphKind.Directed:
     hasCycleDirected(g)
   else:
     hasCycleUndirected(g)
@@ -247,7 +247,7 @@ proc hasEulerianCircuit*(g: Graph): bool =
   let n = g.nodeCount
   if n == 0:
     return true
-  if g.kind == gkDirected:
+  if g.kind == GraphKind.Directed:
     var inDeg: seq[int]
     inDeg.setLen(n)
     for i in 0 ..< n:
@@ -279,7 +279,7 @@ proc hasEulerianCircuit*(g: Graph): bool =
       if not visited[e.target.int]:
         visited[e.target.int] = true
         queue.addLast(e.target)
-  if g.kind == gkDirected:
+  if g.kind == GraphKind.Directed:
     # Build reverse graph reachability from startNode.
     var revVisited: seq[bool]
     revVisited.setLen(n)
@@ -309,7 +309,7 @@ proc hasEulerianPath*(g: Graph): bool =
   let n = g.nodeCount
   if n == 0:
     return true
-  if g.kind == gkDirected:
+  if g.kind == GraphKind.Directed:
     var inDeg: seq[int]
     inDeg.setLen(n)
     for i in 0 ..< n:
@@ -359,7 +359,7 @@ proc eulerianCircuit*(g: Graph): seq[NodeId] =
     adjList[i].setLen(nbrs.len)
     for j in 0 ..< nbrs.len:
       adjList[i][j] = nbrs[j]
-  if g.kind == gkUndirected:
+  if g.kind == GraphKind.Undirected:
     var edgeUsed: seq[seq[bool]]
     edgeUsed.setLen(n)
     for i in 0 ..< n:

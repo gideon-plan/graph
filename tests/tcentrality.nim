@@ -8,7 +8,7 @@ import graph/centrality
 
 suite "degree distribution":
   test "simple graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -19,7 +19,7 @@ suite "degree distribution":
 
 suite "PageRank":
   test "star graph center has highest rank":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(1, 0)
     g.addEdge(2, 0)
@@ -30,7 +30,7 @@ suite "PageRank":
     check pr[0] > pr[3]
 
   test "ranks sum to ~1":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -41,7 +41,7 @@ suite "PageRank":
 
 suite "betweenness centrality":
   test "center of star has highest betweenness":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -51,7 +51,7 @@ suite "betweenness centrality":
     check bc[0] > bc[1]
 
   test "path graph middle node":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -62,7 +62,7 @@ suite "betweenness centrality":
 
 suite "closeness centrality":
   test "center of star":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -72,7 +72,7 @@ suite "closeness centrality":
 
 suite "eigenvector centrality":
   test "converges":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -83,7 +83,7 @@ suite "eigenvector centrality":
 
 suite "HITS":
   test "hub and authority scores":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(0, 2)

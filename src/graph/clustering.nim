@@ -55,7 +55,7 @@ proc localClusteringCoefficient*(g: Graph, node: NodeId): float =
     for e2 in g.neighbors(NodeId(u)):
       if e2.target.int in neighbors and e2.target.int != node.int:
         triangles += 1
-  if g.kind == gkUndirected:
+  if g.kind == GraphKind.Undirected:
     triangles = triangles div 2
   triangles.float / (deg * (deg - 1) div 2).float
 

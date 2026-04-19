@@ -128,7 +128,7 @@ proc kosarajuScc*(g: Graph): seq[seq[NodeId]] =
       dfs1(i)
 
   # Build reverse graph.
-  var rev = initGraph(gkDirected, n)
+  var rev = initGraph(GraphKind.Directed, n)
   for i in 0 ..< n:
     discard rev.addNode()
   for i in 0 ..< n:

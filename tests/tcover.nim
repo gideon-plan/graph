@@ -8,7 +8,7 @@ import graph/cover
 
 suite "vertex cover":
   test "covers all edges":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -19,7 +19,7 @@ suite "vertex cover":
       check e.source.int in vcSet or e.target.int in vcSet
 
   test "triangle":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -29,7 +29,7 @@ suite "vertex cover":
 
 suite "independent set":
   test "complement of vertex cover":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)

@@ -8,7 +8,7 @@ import graph/components
 
 suite "connected components":
   test "single component":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -17,7 +17,7 @@ suite "connected components":
     check g.isConnected()
 
   test "two components":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)
@@ -25,13 +25,13 @@ suite "connected components":
     check not g.isConnected()
 
   test "isolated nodes":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     check g.componentCount() == 3
 
 suite "Tarjan SCC":
   test "single SCC (cycle)":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -41,7 +41,7 @@ suite "Tarjan SCC":
     check sccs[0].len == 3
 
   test "three SCCs":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(6)
     # SCC 1: 0, 1, 2
     g.addEdge(0, 1)
@@ -57,7 +57,7 @@ suite "Tarjan SCC":
     check sccs.len == 3
 
   test "DAG (each node is own SCC)":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -66,7 +66,7 @@ suite "Tarjan SCC":
 
 suite "Kosaraju SCC":
   test "single SCC":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -76,7 +76,7 @@ suite "Kosaraju SCC":
     check sccs[0].len == 3
 
   test "Tarjan and Kosaraju agree on count":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(6)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -90,7 +90,7 @@ suite "Kosaraju SCC":
 suite "articulation points":
   test "single cut vertex":
     # 0 - 1 - 2; 1 is the only AP
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -99,7 +99,7 @@ suite "articulation points":
     check aps[0] == NodeId(1)
 
   test "no cut vertex in a cycle":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -108,7 +108,7 @@ suite "articulation points":
 
 suite "bridges":
   test "single bridge":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -118,7 +118,7 @@ suite "bridges":
     check b.len == 1
 
   test "no bridges in complete graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)

@@ -8,7 +8,7 @@ import graph/cores
 
 suite "k-core":
   test "triangle is 2-core":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -21,7 +21,7 @@ suite "k-core":
     check cn[3] == 1
 
   test "k-core members":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -31,7 +31,7 @@ suite "k-core":
     check core2.len == 3
 
   test "degeneracy":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

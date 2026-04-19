@@ -8,7 +8,7 @@ import graph/dag
 
 suite "transitive closure":
   test "simple DAG":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -20,7 +20,7 @@ suite "transitive closure":
 
 suite "transitive reduction":
   test "removes redundant edges":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -32,7 +32,7 @@ suite "transitive reduction":
 
 suite "longest path":
   test "DAG critical path":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 3.0)
     g.addEdge(0, 2, 2.0)
@@ -42,7 +42,7 @@ suite "longest path":
     check dist[3] == 7.0  # 0 -> 1 -> 3
 
   test "critical path length":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1, 3.0)
     g.addEdge(0, 2, 2.0)
@@ -52,7 +52,7 @@ suite "longest path":
 
 suite "dominator tree":
   test "simple DAG":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -65,7 +65,7 @@ suite "dominator tree":
     check idom[3] == 0  # 0 dominates 3 (both paths go through 0)
 
   test "linear chain":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

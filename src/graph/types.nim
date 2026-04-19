@@ -30,10 +30,10 @@ type
     target*: NodeId
     weight*: float
 
-  GraphKind* = enum
+  GraphKind* {.pure.} = enum
     ## Whether edges are directed or undirected.
-    gkDirected
-    gkUndirected
+    Directed
+    Undirected
 
   Graph* = object
     ## Adjacency list graph.
@@ -70,7 +70,7 @@ func edge*(target: NodeId, weight: float = 1.0): Edge =
 #== GRAPH CONSTRUCTION =================================================================================================
 #=======================================================================================================================
 
-func initGraph*(kind: GraphKind = gkDirected, capacity: int = 0): Graph =
+func initGraph*(kind: GraphKind = GraphKind.Directed, capacity: int = 0): Graph =
   ## Create an empty graph of the given `kind`.
   result = Graph(kind: kind)
   if capacity > 0:
@@ -112,7 +112,7 @@ func addEdge*(g: var Graph, source, target: NodeId, weight: float = 1.0) =
   ## Add an edge from `source` to `target`.
   ## For undirected graphs, the reverse edge is added automatically.
   g.adj[source.int].add(edge(target, weight))
-  if g.kind == gkUndirected:
+  if g.kind == GraphKind.Undirected:
     g.adj[target.int].add(edge(source, weight))
 
 func addEdge*(g: var Graph, source, target: int, weight: float = 1.0) =
@@ -133,7 +133,7 @@ func edgeCount*(g: Graph): int =
   var total = 0
   for edges in g.adj:
     total += edges.len
-  if g.kind == gkUndirected:
+  if g.kind == GraphKind.Undirected:
     total div 2
   else:
     total
@@ -175,7 +175,7 @@ iterator edges*(g: Graph): tuple[source: NodeId, target: NodeId, weight: float] 
   ## For undirected graphs, each edge is yielded once (source < target).
   for i in 0 ..< g.adj.len:
     for e in g.adj[i]:
-      if g.kind == gkUndirected:
+      if g.kind == GraphKind.Undirected:
         if i <= e.target.int:
           yield (NodeId(i), e.target, e.weight)
       else:

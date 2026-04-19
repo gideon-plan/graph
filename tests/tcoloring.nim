@@ -8,7 +8,7 @@ import graph/coloring
 
 suite "greedy coloring":
   test "bipartite graph needs 2 colors":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)
@@ -21,7 +21,7 @@ suite "greedy coloring":
     check g.chromaticUpperBound() <= 3
 
   test "complete graph K3 needs 3 colors":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -29,6 +29,6 @@ suite "greedy coloring":
     check g.chromaticUpperBound() == 3
 
   test "independent set needs 1 color":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(5)
     check g.chromaticUpperBound() == 1

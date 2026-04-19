@@ -43,7 +43,7 @@ proc transitiveClosure*(g: Graph): Graph =
         if reach[k][j]:
           reach[i][j] = true
 
-  result = initGraph(gkDirected, n)
+  result = initGraph(GraphKind.Directed, n)
   for i in 0 ..< n:
     discard result.addNode()
   for i in 0 ..< n:
@@ -75,7 +75,7 @@ proc transitiveReduction*(g: Graph): Graph =
         if reach[k][j]:
           reach[i][j] = true
 
-  result = initGraph(gkDirected, n)
+  result = initGraph(GraphKind.Directed, n)
   for i in 0 ..< n:
     discard result.addNode()
 

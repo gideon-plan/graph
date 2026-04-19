@@ -8,7 +8,7 @@ import graph/traversal
 
 suite "BFS":
   test "simple directed graph":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -26,7 +26,7 @@ suite "BFS":
     check idx2 < idx4
 
   test "BFS parent array":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -38,7 +38,7 @@ suite "BFS":
     check parent[3] == 1
 
   test "disconnected graph":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(2, 3)
@@ -49,7 +49,7 @@ suite "BFS":
 
 suite "DFS":
   test "simple directed graph":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(5)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -60,7 +60,7 @@ suite "DFS":
     check order.len == 5
 
   test "DFS parent array":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -73,7 +73,7 @@ suite "DFS":
 
 suite "topological sort":
   test "DAG":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)
@@ -93,14 +93,14 @@ suite "topological sort":
 
 suite "cycle detection":
   test "directed acyclic":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
     check not g.hasCycle()
 
   test "directed with cycle":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -108,7 +108,7 @@ suite "cycle detection":
     check g.hasCycle()
 
   test "undirected acyclic (tree)":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -116,7 +116,7 @@ suite "cycle detection":
     check not g.hasCycle()
 
   test "undirected with cycle":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -125,7 +125,7 @@ suite "cycle detection":
 
 suite "bipartite":
   test "bipartite graph":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 3)
@@ -134,7 +134,7 @@ suite "bipartite":
     check g.isBipartite()
 
   test "non-bipartite (odd cycle)":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -142,7 +142,7 @@ suite "bipartite":
     check not g.isBipartite()
 
   test "bipartite partition":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 3)
@@ -152,12 +152,12 @@ suite "bipartite":
     check a.len + b.len == 4
 
   test "empty graph is bipartite":
-    let g = initGraph(gkUndirected)
+    let g = initGraph(GraphKind.Undirected)
     check g.isBipartite()
 
 suite "Eulerian":
   test "directed Eulerian circuit":
-    var g = initGraph(gkDirected)
+    var g = initGraph(GraphKind.Directed)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -169,7 +169,7 @@ suite "Eulerian":
 
   test "undirected Eulerian circuit":
     # Square: 0-1-2-3-0
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -182,7 +182,7 @@ suite "Eulerian":
 
   test "Eulerian path exists":
     # 0-1-2 (path, not circuit)
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -191,7 +191,7 @@ suite "Eulerian":
 
   test "no Eulerian path":
     # Star with 3 odd-degree nodes
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(0, 2)

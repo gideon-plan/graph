@@ -76,7 +76,7 @@ func toGraph*(csr: CsrGraph): Graph =
   # For directed graphs, copy edges directly.
   # For undirected graphs, the CSR already has both directions stored,
   # but addEdge would double them. Add edges manually for one direction only.
-  if csr.kind == gkDirected:
+  if csr.kind == GraphKind.Directed:
     for i in 0 ..< csr.nodeCount:
       let start = csr.offsets[i]
       let stop = csr.offsets[i + 1]
@@ -98,7 +98,7 @@ func toGraph*(csr: CsrGraph): Graph =
 func edgeCount*(csr: CsrGraph): int =
   ## Number of directed edges (or undirected edges counted once).
   let total = csr.targets.len
-  if csr.kind == gkUndirected:
+  if csr.kind == GraphKind.Undirected:
     total div 2
   else:
     total
@@ -145,7 +145,7 @@ iterator edges*(csr: CsrGraph): tuple[source: NodeId, target: NodeId, weight: fl
     let start = csr.offsets[i]
     let stop = csr.offsets[i + 1]
     for j in start ..< stop:
-      if csr.kind == gkUndirected:
+      if csr.kind == GraphKind.Undirected:
         if i <= csr.targets[j].int:
           yield (NodeId(i), csr.targets[j], csr.weights[j])
       else:

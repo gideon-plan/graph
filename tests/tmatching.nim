@@ -8,7 +8,7 @@ import graph/matching
 
 suite "Hopcroft-Karp":
   test "bipartite matching":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(6)
     # Left: 0, 1, 2; Right: 3, 4, 5
     g.addEdge(0, 3)
@@ -20,7 +20,7 @@ suite "Hopcroft-Karp":
     check m.len == 3  # Perfect matching exists.
 
   test "incomplete matching":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     # Left: 0, 1; Right: 2, 3
     g.addEdge(0, 2)
@@ -32,7 +32,7 @@ suite "Hopcroft-Karp":
 suite "Edmonds blossom":
   test "general matching":
     # Triangle: general matching finds 1 edge.
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(3)
     g.addEdge(0, 1)
     g.addEdge(1, 2)
@@ -41,7 +41,7 @@ suite "Edmonds blossom":
     check m.len == 1
 
   test "path of 4 nodes":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1)
     g.addEdge(1, 2)

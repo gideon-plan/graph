@@ -9,7 +9,7 @@ import graph/tour
 suite "Christofides":
   test "small complete graph":
     # K4 with weights.
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(4)
     g.addEdge(0, 1, 1.0)
     g.addEdge(0, 2, 2.0)
@@ -23,7 +23,7 @@ suite "Christofides":
     check cost > 0.0
 
   test "trivial 2-node":
-    var g = initGraph(gkUndirected)
+    var g = initGraph(GraphKind.Undirected)
     discard g.addNodes(2)
     g.addEdge(0, 1, 5.0)
     let (_, path) = g.christofides()

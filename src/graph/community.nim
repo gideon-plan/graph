@@ -31,16 +31,16 @@ proc modularity*(g: Graph, communities: seq[system.int]): float =
   let m = g.edgeCount().float
   if m == 0.0:
     return 0.0
-  let scale = if g.kind == gkUndirected: 2.0 * m else: m
+  let scale = if g.kind == GraphKind.Undirected: 2.0 * m else: m
   var degIn: seq[float]
   degIn.setLen(n)
   var degOut: seq[float]
   degOut.setLen(n)
   for i in 0 ..< n:
     degOut[i] = g.degree(NodeId(i)).float
-    if g.kind == gkUndirected:
+    if g.kind == GraphKind.Undirected:
       degIn[i] = degOut[i]
-  if g.kind == gkDirected:
+  if g.kind == GraphKind.Directed:
     for i in 0 ..< n:
       for e in g.neighbors(NodeId(i)):
         degIn[e.target.int] += 1.0
@@ -67,7 +67,7 @@ proc louvain*(g: Graph): seq[system.int] =
       result[i] = i
     return
 
-  let scale = if g.kind == gkUndirected: 2.0 * m else: m
+  let scale = if g.kind == GraphKind.Undirected: 2.0 * m else: m
 
   # Initialize: each node in its own community.
   result.setLen(n)
@@ -128,7 +128,7 @@ proc leiden*(g: Graph, gamma: float = 1.0): seq[system.int] =
   let m = g.edgeCount().float
   if m == 0.0:
     return
-  let scale = if g.kind == gkUndirected: 2.0 * m else: m
+  let scale = if g.kind == GraphKind.Undirected: 2.0 * m else: m
 
   var deg: seq[float]
   deg.setLen(n)
@@ -268,7 +268,7 @@ proc girvanNewman*(g: Graph, targetCommunities: system.int = 2): seq[system.int]
       discard newWork.addNode()
     for e in work.edges:
       if not ((e.source.int == bestSrc and e.target.int == bestTgt) or
-              (g.kind == gkUndirected and e.source.int == bestTgt and e.target.int == bestSrc)):
+              (g.kind == GraphKind.Undirected and e.source.int == bestTgt and e.target.int == bestSrc)):
         newWork.addEdge(e.source, e.target, e.weight)
     work = newWork
 
